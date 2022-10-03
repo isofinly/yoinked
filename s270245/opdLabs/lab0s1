@@ -1,0 +1,42 @@
+#!bin/zsh 
+mkdir lab0
+cd lab0
+
+mkdir dodrio2
+cd dodrio2
+touch shiftry
+echo "Живёт  Forest Rainforest" >shiftry
+touch cloyster
+echo -e "Тип покемона  Water\nICE" >cloyster
+mkdir bibrael
+mkdir tirtouga
+cd ..
+touch dratini7
+echo "weigth=7.3 height=71.0 atk=6 def=5" >dratini7
+touch dwebble0
+echo -e "Способности\nFury Cutter Rock Blast Withdraw Sand-Attack Faint Attack Smack Down Rock Polish Bug Bite Stealth Rock Rock Slide Slash X-Scissor Shell Smash Flail Rock Wrecker" >dwebble0
+mkdir kingler2
+cd kingler2
+mkdir shelgon
+touch mantyke
+echo -e "Тип покемона  WATER\nFLYING" >mantyke
+touch simisage
+echo -e "This is dummy text when pokemon does not\ncontain something. It is better than NPE!" >simisage
+touch electivire
+echo -e "weigth=305.6\nheight=71.0 atk=12 def=7" >electivire
+mkdir trapinch
+mkdir duskull
+cd ..
+touch sunflora4
+echo -e "Способности  Overgrow Clorophyll\nStar Power" >sunflora4
+mkdir wurmple5
+cd wurmple5
+mkdir beedrill
+mkdir cherrim
+mkdir palpitoad
+mkdir combusken
+touch breloom
+echo -e "Развитые способности  Quick Feet\nTechnician" >breloom
+touch ferroseed
+echo -e "Ходы  Endeavor Giga Drain Gravity Iron Defense\nIronHead Magnet Rise Seed Bomb Sleep Talk Snore Stealth Rock Worry Seed" >ferroseed
+cd ..

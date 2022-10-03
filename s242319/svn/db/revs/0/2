@@ -1,0 +1,43 @@
+id: 0.0-2.r2/0
+type: dir
+pred: 0.0.r1/1755
+count: 2
+text: 1 1599 143 143 02a6be5bb784b912ce0c7fa0ba92a170
+cpath: /branches
+copyfrom: 1 /
+
+PLAIN
+K 6
+A.java
+V 17
+file 0-1.0.r1/928
+K 6
+B.java
+V 18
+file 2-1.0.r1/1094
+K 6
+D.java
+V 18
+file 3-1.0.r1/1263
+K 6
+F.java
+V 18
+file 4-1.0.r1/1432
+K 8
+branches
+V 14
+dir 0.0-2.r2/0
+END
+ENDREP
+id: 0.0.r2/327
+type: dir
+pred: 0.0.r1/1755
+count: 2
+text: 2 138 176 176 0b6cef67c5a87cd1dc5ef521daeedad3
+cpath: /
+copyroot: 0 /
+
+0._0.t1-1 add-dir false false /branches
+1 /
+
+327 456

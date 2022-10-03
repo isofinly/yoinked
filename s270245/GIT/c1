@@ -1,0 +1,87 @@
+git config --global user.name "user1"
+git config --global user.email "user1@werdei.net"
+git init
+cp ../commits/0/* .
+git add .
+git commit -m "r0"
+
+rm *
+cp ../commits/1/* .
+git add .
+git commit -m "r1"
+
+rm *
+cp ../commits/2/* .
+git add .
+git commit -m "r2"
+
+git config --global user.name "user2"
+git config --global user.email "user2@werdei.net"
+git checkout -b branch0
+rm *
+cp ../commits/3/* .
+git add .
+git commit -m "r3"
+
+rm *
+cp ../commits/4/* .
+git add .
+git commit -m "r4"
+
+git config --global user.name "user1"
+git config --global user.email "user1@werdei.net"
+git checkout master
+rm *
+cp ../commits/5/* .
+git add .
+git commit -m "r5"
+
+rm *
+cp ../commits/6/* .
+git add .
+git commit -m "r6"
+
+rm *
+cp ../commits/7/* .
+git add .
+git commit -m "r7"
+
+rm *
+cp ../commits/8/* .
+git add .
+git commit -m "r8"
+
+git config --global user.name "user2"
+git config --global user.email "user2@werdei.net"
+git checkout branch0
+rm *
+cp ../commits/9/* .
+git add .
+git commit -m "r9"
+
+git checkout branch0
+rm *
+cp ../commits/10/* .
+git add .
+git commit -m "r10"
+
+git config --global user.name "user1"
+git config --global user.email "user1@werdei.net"
+git checkout -b branch1
+rm *
+cp ../commits/11/* .
+git add .
+git commit -m "r11"
+
+git config --global user.name "user2"
+git config --global user.email "user2@werdei.net"
+git checkout branch0
+rm *
+cp ../commits/12/* .
+git add .
+git commit -m "r12"
+
+git config --global user.name "user1"
+git config --global user.email "user1@werdei.net"
+git checkout branch1
+git merge branch0 --no-commit

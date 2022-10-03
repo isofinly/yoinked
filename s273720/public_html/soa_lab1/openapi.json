@@ -1,0 +1,1224 @@
+{
+	"openapi": "3.0.3",
+	"info": {
+		"title": "SOA Lab 1",
+		"description": "Collecation data access service API",
+		"contact": {
+			"name": "Huang Siyuan, Marina Krayukhina P34101"
+		},
+		"version": "1.0.0"
+	},
+	"tags": [{
+			"name": "RouteCRUD",
+			"description": "CRUD operations"
+		},
+		{
+			"name": "RouteAdditional",
+			"description": "Additional operations"
+		}
+	],
+	"paths": {
+		"/routes/": {
+			"post": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Create new route",
+				"description": "Create a new route",
+				"operationId": "createRoute",
+				"requestBody": {
+					"description": "Route data",
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/Route"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"201": {
+						"description": "OK",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Route"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "validation error"
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Get routes by filter",
+				"description": "Get targets of routes by filter",
+				"operationid": "getTargetRoutes",
+				"parameters": [{
+						"name": "id",
+						"in": "query",
+						"schema": {
+							"type": "long",
+							"minimum": 1,
+							"example": 1
+						}
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"minLength": 1,
+							"example": "Route to ITMO"
+						}
+					},
+					{
+						"name": "coordinatesX",
+						"in": "query",
+						"schema": {
+							"type": "float",
+							"example": 666.66
+						}
+					},
+					{
+						"name": "coordinatesY",
+						"in": "query",
+						"schema": {
+							"type": "Integer",
+							"example": 6
+						}
+					},
+					{
+						"name": "creationDate",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"format": "date-time",
+							"example": "2001-09-12T00:00:00"
+						}
+					},
+					{
+						"name": "fromX",
+						"in": "query",
+						"schema": {
+							"type": "int",
+							"format": "int64",
+							"example": 2
+						}
+					},
+					{
+						"name": "fromY",
+						"in": "query",
+						"schema": {
+							"type": "float",
+							"example": 1.1
+						}
+					},
+					{
+						"name": "fromZ",
+						"in": "query",
+						"schema": {
+							"type": "Long",
+							"example": 10000
+						}
+					},
+					{
+						"name": "fromName",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"example": "ITMO"
+						}
+					},
+					{
+						"name": "toX",
+						"in": "query",
+						"schema": {
+							"type": "int",
+							"format": "int64",
+							"example": 2
+						}
+					},
+					{
+						"name": "toY",
+						"in": "query",
+						"schema": {
+							"type": "float",
+							"example": 1.1
+						}
+					},
+					{
+						"name": "toZ",
+						"in": "query",
+						"schema": {
+							"type": "Long",
+							"example": 10000
+						}
+					},
+					{
+						"name": "toName",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"example": "ITMO"
+						}
+					},
+					{
+						"name": "distance",
+						"in": "query",
+						"schema": {
+							"type": "integer",
+							"minLength": 1,
+							"example": "123454"
+						}
+					},
+					{
+						"name": "pageSize",
+						"in": "query",
+						"schema": {
+							"type": "integer",
+							"minimum": 1,
+							"example": 20
+						}
+					},
+					{
+						"name": "offSet",
+						"in": "query",
+						"schema": {
+							"type": "integer",
+							"minimum": 0,
+							"example": 20
+						}
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"example": "name"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "array",
+									"xml": {
+										"name": "list",
+										"wrapped": true
+									},
+									"items": {
+										"$ref": "#/components/schemas/Route"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "validation error"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Did not found such route.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "Not Found."
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+		},
+		"/routes/{id}": {
+			"get": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Get a route by id",
+				"description": "Get a route by id",
+				"operationid": "getRoute",
+				"parameters": [{
+					"name": "id",
+					"in": "query",
+					"schema": {
+					"type": "long",
+					"example": 110
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Route"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "The targer does not exist"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Did not found such route.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "Not Found."
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Update a route by id",
+				"description": "Update a route by id",
+				"operationid": "updateRoute",
+				"parameters": [{
+					"name": "id",
+					"in": "query",
+					"schema": {
+					"type": "long",
+					"example": 110
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Route"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "The targer does not exist"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Did not found such route.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "Not Found."
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Delete a route by id",
+				"description": "Delete a route by id",
+				"operationid": "deleteRoute",
+				"parameters": [{
+					"name": "id",
+					"in": "query",
+					"schema": {
+					"type": "long",
+					"example": 110
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successfully removed",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "Response",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 200
+										},
+										"message": {
+											"type" : "string",
+											"example": "The targer is removed successfully."
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "The targer does not exist"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Did not found such route.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "Not Found."
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/routes/distances/sum": {
+			"post": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Get sum of all distance",
+				"description": "Get sum of all distance",
+				"operationid": "getSumDistance",
+				"responses": {
+					"200": {
+						"description": "Get sum successfully.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "Response",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 200
+										},
+										"message": {
+											"type" : "integer",
+											"example": 10000
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "If there is no distance, then return error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "There is no distance"
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/routes/distances/less/{value}": {
+			"post": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Return the number of objects whose distance field value is less than the specified value.",
+				"description": "Return the number of objects whose distance field value is less than the specified value.",
+				"operationid": "getNumberOfLessDistance",
+				"parameters": [{
+					"name": "distance",
+					"in": "query",
+					"schema": {
+					"type": "integer",
+					"example": 110
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Get the number of target obj successfully.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "Response",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 200
+										},
+										"message": {
+											"type" : "integer",
+											"example": 10000
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "validation error"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Did not found such route.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "Not Found."
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/routes/distances/unique": {
+			"post": {
+				"tags": [
+					"RouteCRUD"
+				],
+				"summary": "Return an array of unique distance field values across all objects.",
+				"description": "Return an array of unique distance field values across all objects.",
+				"operationId": "getUniqueDistance",
+				"responses": {
+					"200": {
+            "description": "OK",
+              
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+										"example": 1
+                  }
+                }
+              
+            
+          },
+					"404": {
+						"description": "Did not found such route.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "Not Found."
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 500
+										},
+										"message": {
+											"type" : "string",
+											"example": "Internal server error."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/navigator/routes/{id-from}/{id-to}/{shortest}": {
+			"parameters": [
+				{
+					"name": "id-from",
+					"in": "query",
+					"schema": {
+						"type": "integer",
+						"example": 110
+						}
+				},
+				{
+					"name": "id-to",
+					"in": "query",
+					"schema": {
+						"type": "integer",
+						"example": 111
+						}
+				},
+				{
+					"name": "shortest",
+					"in": "query",
+					"schema": {
+						"type": "integer",
+						"example": 1
+						}
+				}
+			],
+			"post": {
+				"tags": [
+					"RouteAdditional"
+				],
+				"summary": "Find the shortest route",
+				"description": "find the shortest (or longest) route between the given locations. If shortest == 0, then find longest, if shortest == 1, then find shortest. Else return ErrorResponse.",
+				"operationId": "getTargerRoute",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Route"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "validation error"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "There is no route between them.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "There is no route between them!"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/navigator/routes/{id-from}/{id-to}/{distance}": {
+			"parameters": [
+				{
+					"name": "id-from",
+					"in": "query",
+					"schema": {
+						"type": "integer",
+						"example": 110
+						}
+				},
+				{
+					"name": "id-to",
+					"in": "query",
+					"schema": {
+						"type": "integer",
+						"example": 111
+						}
+				},
+				{
+					"name": "distance",
+					"in": "query",
+					"schema": {
+						"type": "integer",
+						"example": 100
+						}
+				}
+			],
+			"post": {
+				"tags": [
+					"RouteAdditional"
+				],
+				"summary": "Add a new route",
+				"description": "Add a new route between the specified locations",
+				"operationId": "addRouteBetweenLocations",
+				"responses": {
+					"201": {
+						"description": "OK",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Route"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "validation error",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 400
+										},
+										"message": {
+											"type" : "string",
+											"example": "validation error"
+										}
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "There is no route between them.",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"type": "object",
+									"xml": {
+										"name": "ErrorResponse",
+										"wrapped": true
+									},
+									"properties": {
+										"status": {
+											"type" : "integer",
+											"example": 404
+										},
+										"message": {
+											"type" : "string",
+											"example": "There is no target location."
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Route": {
+				"required": [
+					"id",
+					"name",
+					"coordinates",
+					"creationDate",
+				],
+				"type": "object",
+				"xml": {
+					"name": "route"
+				},
+				"properties": {
+					"id": {
+						"type": "long",
+						"minimum": 1,
+						"example": "123"
+					},
+					"name": {
+						"type": "string",
+						"minLength": 1,
+						"example": "Route for itmo"
+					},
+					"coordinates": {
+						"$ref": "#/components/schemas/Coordinates"
+					},
+					"creationDate": {
+						"type": "LocalDateTime",
+						"example": "14-01-2017 11:42:32"
+					},
+					"from": {
+						"$ref": "#/components/schemas/Location"
+					},
+					"to": {
+						"$ref": "#/components/schemas/Location"
+					},
+					"distance":{
+						"type": "Integer",
+						"minimum": 1,
+						"example": 100
+					}
+				}
+			},
+			"Coordinates": {
+				"required": [
+					"x",
+					"y"
+				],
+				"type": "object",
+				"xml": {
+					"name": "coordinates"
+				},
+				"properties": {
+					"x": {
+						"type": "float",
+						"example": 6.5
+					},
+					"y": {
+						"type": "integer",
+						"example": 6
+					}
+				}
+			},
+			"Location": {
+				"required": [
+					"x",
+					"y",
+					"z",
+					"name"
+				],
+				"xml": {
+					"name": "location"
+				},
+				"properties": {
+					"x": {
+						"type": "int",
+						"example": "10"
+					},
+					"y": {
+						"type": "float",
+						"example": "10.5"
+					},
+					"z": {
+						"type": "long",
+						"example": "100000"
+					},
+					"name": {
+						"type": "string",
+						"example": "The location of hell"
+					}
+				}
+			}
+		}
+	}
+}

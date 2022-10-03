@@ -1,0 +1,4 @@
+werdei@pc4:~$ traceroute 4.6.3.2 
+traceroute to 4.6.3.2 (4.6.3.2), 30 hops max, 60 byte packets
+ 1   4.6.3.1     (4.6.3.1)     1.242 ms     1.197 ms     1.274 ms 
+ 2   4.6.2.2     (4.6.2.2)     1.251 ms !X  1.253 ms !X  1.326 ms !X

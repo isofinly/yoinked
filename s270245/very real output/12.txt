@@ -1,0 +1,9 @@
+werdei@pc4:~$ ping 4.6.2.2 -c 3 
+PING 4.6.2.2 (4.6.2.2) : 56(84) bytes of data. 
+64 bytes from 4.6.2.2: icmp_seq=1 ttl=64 time=1.09 ms 
+64 bytes from 4.6.2.2: icmp_seq=2 ttl=64 time=1.11 ms 
+64 bytes from 4.6.2.2: icmp_seq=3 ttl=64 time=1.20 ms
+
+--- 4.6.2.2 ping statistics --- 
+3 packets transmitted, 3 received, 0% packet loss, time 1092ms
+rtt min/avg/max/mdev = 1.09/1.13/1.20/0.023 ms

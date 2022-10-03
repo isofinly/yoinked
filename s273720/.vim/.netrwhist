@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/studs/s284702/public_html/soa_lab1'
+let g:netrw_dirhist_3='/home/studs/s284702'
+let g:netrw_dirhist_2='/home/studs/s284702/public_html'
+let g:netrw_dirhist_1='/home/studs/s283809/public_html'

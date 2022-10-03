@@ -1,0 +1,7 @@
+rm *
+cp ../commits/13/* .
+git add .
+git commit -m "r13"
+
+git checkout master
+git merge branch1

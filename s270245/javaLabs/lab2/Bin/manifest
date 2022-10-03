@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: ru.ifmo.se.pokemon.battle.BattleMaker
+Class-Path: Pokemon.jar
+
+

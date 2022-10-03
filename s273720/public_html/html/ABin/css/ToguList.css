@@ -1,0 +1,65 @@
+body {
+    text-align: center;
+    background: linear-gradient(60deg,#CCFFFF, #5bace3,#77f6fa,#93d4bb, #bbdd93);
+    background-size: 700% 100%;
+    animation: gradient 20s linear infinite;
+    animation-direction: alternate;
+}
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100%{background-position: 0% 50%;}
+}
+
+li {
+    list-style: none;
+    text-align: left;
+    border: 1px #333;
+}
+
+input {
+    width: 400px;
+    height: 30px;
+    outline: none;
+    border: 1px;
+    background-color: inherit;
+    font: 14px 'Roboto Condensed';
+    font-size: 20px;
+}
+
+img {
+    width: 16px;
+    height: 16px;
+    margin: 10px;
+    float: right;
+}
+.main {
+    width: 400px;
+    height: auto;
+    background-color: inherit;
+    font: 18px/40px 'Roboto Condensed';
+}
+
+.footer {
+    width: 400px;
+    height: auto;
+    background-color: inherit;
+}
+
+.footer span strong {
+    color: #ff7b00;
+}
+
+.footer span {
+    float: left;
+}
+
+.footer button {
+    float: right;
+}
+#toguapp {
+    position: absolute;
+    top: 50px;
+    width: 1500px;
+    height: 1000px;
+}

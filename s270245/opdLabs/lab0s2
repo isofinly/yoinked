@@ -1,0 +1,35 @@
+#!/bin/ksh
+
+cd lab0
+
+cd dodrio2
+chmod u=r,g=,o= shiftry
+chmod u=rw,g=r,o= cloyster
+chmod u=rx,g=r,o=w bibrael
+chmod u=rwx,g=rx,o=w tirtouga
+cd ..
+chmod u=wx,g=wx,o=rx dodrio2
+
+chmod u=rw,g=w,o=r dratini7
+chmod u=rw,g=w,o=w dwebble0
+
+cd kingler2
+chmod 555 shelgon
+chmod u=r,g=r,o= mantyke
+chmod 400 simisage
+chmod 440 electivire
+chmod 755 trapinch
+chmod u=rwx,g=wx,o=rw duskull
+cd ..
+chmod 357 kingler2
+
+chmod u=,g=,o=r sunflora4
+
+cd wurmple5 
+chmod 751 beedrill
+chmod u=wx,g=rwx,o=rx cherrim
+chmod u=wx,g=wx,o=rx palpitoad
+chmod u=wx,g=wx,o=rx combusken
+chmod 046 breloom
+cd ..
+chmod u=rx,g=rwx,o=rw wurmple5

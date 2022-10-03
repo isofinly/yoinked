@@ -1,0 +1,167 @@
+/* ----- Globals ----- */
+
+*::selection{
+    background-color:green;
+    color: greenyellow;
+}
+
+*::-moz-selection{
+    background-color:green;
+    color: greenyellow;
+}
+
+body{
+    background-color:cornsilk;
+    margin: 0%;
+}
+
+
+button{
+    background-color: cornsilk;
+    border-color: burlywood;
+}
+
+    button:hover{
+        background-color: burlywood;
+        border-color:darkgoldenrod;
+    }
+
+    button:focus{
+        background-color: rgb(247, 235, 186);
+        border-color:darkgoldenrod;
+    }
+
+    button:active{
+        background-color: rgb(192, 154, 104);
+        border-color:darkgoldenrod;
+    }
+
+
+
+/* ----- Main Page Parts ----- */
+
+#tophat{
+    text-align: center;
+    color: black;
+    padding: 20px 0px 20px 0px;
+    font-family: serif;
+    font-size: 18px;
+    font-weight: bold;
+
+    background-color: orange;
+    border-style: none none solid none;
+    border-width: 3px;
+    border-bottom-color:darkgoldenrod;
+}
+
+    #tophat span{
+        font-size: 75%;
+    }
+
+
+#main{
+    margin: 50px auto auto auto;
+    width: 600px;
+}
+
+    #main > div{
+        padding: 10px;
+        
+        border-style: solid;
+        border-width: 2px;
+        border-color: goldenrod;
+    }
+
+
+.formholder {
+    width: 300px;
+    float: left;
+    background-color:ivory;
+}
+
+.graphics{    
+    width: 225px;
+    height: 225px;
+    float: right;
+    text-align: center;
+    background-color:white;
+}
+
+
+
+/* ----- Form and Everything on it ----- */
+
+
+.checkboxes{
+    text-align:center;
+    width: 100%;    
+    display: table;
+    table-layout: fixed; 
+}
+
+    .checkboxes span{
+        display: table-cell;
+        text-align: center;
+    }
+
+
+.buttons{
+    text-align:center;
+    width: 100%;
+    display: table;
+    table-layout: fixed; 
+}
+
+    .buttons > span{
+        text-align:left;
+        display: table-cell;
+    }
+
+    .buttons button{
+        text-align:center;
+        width: 95%;
+        height: 30px;
+    }
+
+#form_button_submit{
+    padding: 5px;
+}
+
+
+
+/* ----- Messages ----- */
+
+.errormessage{
+    color: brown;
+}
+
+.successmessage{
+    color: gold;
+}
+
+
+
+/* ----- Result Table ----- */
+
+.resulttable {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+    .resulttable tr{
+        background-color: white;
+    }
+
+    .resulttable .toprow{
+        background-color: cornsilk;
+    }
+
+    .resulttable th{
+        border: 1px solid goldenrod;
+        width: 20%;
+    }
+
+    .resulttable .resultcell{
+        width: 40%;
+    }

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Iliya",
+    "description": "A cute loli",
+    "power": 42,
+    "location": {
+      "x": 1716.0,
+      "y": 10.0,
+      "z": 202.0
+    },
+    "birthDate": {
+      "year": 2010,
+      "month": 1,
+      "day": 12
+    }
+  }
+]

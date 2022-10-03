@@ -1,0 +1,2 @@
+werdei@pc4:~$ nc -l 15001
+Oleg

@@ -1,0 +1,16 @@
+#!/bin/ksh
+
+cd lab0
+
+wc -m *e */*e */*/*e */*/*/*e 2>&1 | grep -v total | sort
+
+ls -lt s* */s* */*/s* */*/*/s* | grep studs | tail -3
+
+mkdir tmp
+cat -n dratini7 | grep -i "t$" 2>tmp/errs
+
+wc -l dodrio2/* | grep -v total | sort -r
+
+wc -l c* */c* */*/c* */*/*/c* | grep -v total | sort
+
+cat kingler2/electivire wurmple5/breloom 2>/dev/null | grep -vi Se

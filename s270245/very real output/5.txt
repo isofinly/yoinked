@@ -1,0 +1,3 @@
+werdei@pc4:~$ nc 4.6.1.2 15001
+werdei@pc4:~$ nc -u 4.6.1.2 15001
+Oleg

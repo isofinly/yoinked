@@ -1,0 +1,5 @@
+export JAVA_HOME=/usr/jdk/jdk1.8.0
+export PATH=$JAVA_HOME/bin:$PATH
+cd wildfly*
+cd bin
+./jboss-cli.sh --connect --controller=127.0.0.1:10015 command=:shutdown

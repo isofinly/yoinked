@@ -1,0 +1,7 @@
+werdei@pc1:~$ ping -c 3 -s 100 -t 4.6.3.2 
+PING 4.6.3.2 (4.6.3.2) 56(84) bytes of data. 
+From 4.6.3.2 icmp_seq=1 Destination Net Unreachable 
+From 4.6.3.2 icmp_seq=2 Destination Net Unreachable
+
+--- 4.6.3.2 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 861ms

@@ -1,0 +1,4 @@
+rm *
+cp ../commits/14/* .
+git add .
+git commit -m "r14"
